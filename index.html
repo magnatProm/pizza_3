@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pizza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/null.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script defer="" src="js/js.js"></script>
+    <script defer="" src="js/js_main.js"></script>
+</head>
+
+<body>
+    
+    <main class="main">
+        <div class="cursor"></div>
+
+<header class="header">
+        <img src="logo.png" height="54px" alt="logo">
+        <audio controls loop>
+            <source src="./m1.mp3" type="audio/mpeg">
+          </audio>
+        <button class="btn_main">Заказать</button>
+    </header>
+
+        <section class="section_1">
+            <div class="content">
+            <div class="pizza">
+                <div class="pizza__sauce"></div>
+                <div class="pizza__cheese"></div>
+                <div class="pizza__filling"></div>
+                <div class="pizza__incision"></div>
+            </div>
+              <fieldset class="fieldset">
+                <label>
+                   <input type="radio" name="layer" onclick="remove('none' , 'none' , 'none' , 'none' , 'nan')"/>
+                   <span>слой 1</span>
+                </label>
+                <label>
+                   <input type="radio" name="layer" onclick="remove('block' , 'none' , 'none' , 'none' , 'nan')"/>
+                   <span>слой 2</span>
+                </label>
+                <label>
+                   <input type="radio" name="layer" onclick="remove('none' , 'block' , 'none' , 'none' , 'nan')"/>
+                   <span>слой 3</span>
+                </label>
+                <label>
+                   <input type="radio" name="layer" onclick="remove('none' , 'block' , 'block' , 'none' , 'nan')"/>
+                   <span>слой 4</span>
+                </label>
+                <label>
+                   <input type="radio" name="layer" onclick="remove('none' , 'block' , 'block' , 'block' , 'nan')"/>
+                   <span>слой 5</span>
+                </label>
+                <label>
+                   <input type="radio" name="layer" onclick="remove('block' , 'block' , 'block' , 'block' , 'nan')" checked/>
+                   <span>все</span>
+                </label>
+            </fieldset>
+        </div>
+        </section>
+
+
+        <section class="section_2">
+            <div class="editor">
+            <div class="container">
+
+            <div class="block">
+                <p>кусочков</p>
+                <div class="">
+                <button onclick="this.parentNode.querySelector('input[step]').stepUp()" class="btn_number">+</button>              
+                <input type="number" value="0" step="2" max="8" min="0">
+                <button onclick="this.parentNode.querySelector('input[step]').stepDown()" class="btn_number">-</button>
+                </div>
+            </div>
+            <div class="block">
+                <p>кол. пицц</p>
+                <div class="">
+                    <button class="btn_number">+</button>
+                    <input type="number" data-pizza_add="" value="1" max="12" min="1">
+                    <button class="btn_number">-</button>
+                </div>
+            </div>
+
+             <div class="block">
+                <p>размер</p>
+                <output data-size_value>25см</output>
+                <input type="range" min="0" max="100" step="50" value="0" data-size>
+            </div>
+
+            <div class="block">
+                <p>прожарка</p>
+                <output class="doneness"></output>
+                <input type="range" min="15" max="85" list="values" data-doneness>
+
+                <datalist id="values">
+                    <option value="25" label="25"></option>
+                    <option value="50" label="50"></option>
+                    <option value="75" label="75"></option>
+                </datalist>
+            </div>
+
+        </div>
+
+            <fieldset class="fieldset accordion">
+                <label>
+                   <input type="radio" name="btn" data-click="сыр"/>
+                   <span>сыр</span>
+                </label>
+                <label>
+                   <input type="radio" name="btn" data-click="инградиенты"/>
+                   <span>инградиенты</span>
+                </label>
+                <label>
+                   <input type="radio" name="btn" data-click="соус"/>
+                   <span>соус</span>
+                </label>
+            </fieldset>
+
+            <fieldset class="fieldset catalog" data-open="сыр">
+                <label>
+                   <input type="radio" name="origin" data-price="400" data-name="моцарелла" data-cheese="#E0DAC2"/>
+                   <span>моцарелла</span>
+                </label>
+                <label>
+                    <input type="radio" name="origin" data-price="400" data-name="тофу" data-cheese="#F6FAFB"/>
+                    <span>тофу</span>
+                </label>
+                <label>
+                    <input type="radio" name="origin" data-price="400" data-name="пошехонский" data-cheese="#FFD958"/>
+                    <span>пошехонский</span>
+                </label>
+                <label>
+                    <input type="radio" name="origin" data-price="400" data-name="пармезан" data-cheese="#F8D08A"/>
+                    <span>пармезан</span>
+                </label>
+                <label>
+                    <input type="radio" name="origin" data-price="400" data-name="чеддер" data-cheese="#F29E02"/>
+                    <span>чеддер</span>
+                </label>
+                <label>
+                    <input type="radio" name="origin" data-price="400" data-name="российский" data-cheese="#F4CE7B"/>
+                    <span>российский</span>
+                </label>
+                <label>
+                    <input type="radio" name="origin" data-price="400" data-name="гауда" data-cheese="#EFC66B"/>
+                    <span>гауда</span>
+                </label>
+                <label>
+                    <input type="radio" name="origin" data-price="400" data-name="пармиджано" data-cheese="#D9BC37"/>
+                    <span>пармиджано</span>
+                </label>
+                <label>
+                    <input type="radio" name="origin" data-price="400" data-name="маасдам" data-cheese="#FFE3A2"/>
+                    <span>маасдам</span>
+                </label>
+                <label>
+                    <input type="radio" name="origin" data-price="400" data-name="эмменталь" data-cheese="#ffea2e"/>
+                    <span>эмменталь</span>
+                </label>
+                <label>
+                    <input type="radio" name="origin" data-price="400" data-name="сулугуни" data-cheese="gold"/>
+                    <span>сулугуни</span>
+                </label>
+            </fieldset>
+
+            <fieldset class="fieldset catalog" data-open="соус">
+                <label>
+                    <input type="checkbox" data-price="900" data-name="томатный" data-sauce="red"/>
+                    <span>томатный</span>
+                </label>
+                <label>
+                   <input type="checkbox" data-price="900" data-name="эспаньоль" data-sauce="#9E400D"/>
+                   <span>эспаньоль</span>
+                </label>
+                <label>
+                   <input type="checkbox" data-price="900" data-name="бешамель" data-sauce="#E6DCD0"/>
+                   <span>бешамель</span>
+                </label>
+                <label>
+                   <input type="checkbox" data-price="900" data-name="ткемали" data-sauce="#E44B43"/>
+                   <span>ткемали</span>
+                </label>
+                <label>
+                   <input type="checkbox" data-price="900" data-name="грибной" data-sauce="#E0D8C5"/>
+                   <span>грибной</span>
+                </label>
+                <label>
+                   <input type="checkbox" data-price="900" data-name="песто" data-sauce="#7D7D23"/>
+                   <span>песто</span>
+                </label>
+                <label>
+                   <input type="checkbox" data-price="900" data-name="клюквенный" data-sauce="#7B2435"/>
+                   <span>клюквенный</span>
+                </label>
+                <label>
+                   <input type="checkbox" data-price="900" data-name="терияки" data-sauce="#2A1710"/>
+                   <span>терияки</span>
+                </label>
+            </fieldset>
+
+            <fieldset class="fieldset catalog" data-open="инградиенты">
+                <label>
+                    <input type="number" data-price="400" placeholder="_ _ _" max="40" min="0" data-add="" data-name="sausage"/>
+                    <span>калбаса</span>
+                </label>
+                <label>
+                    <input type="number" data-price="400" placeholder="_ _ _" max="40" min="0" data-add="" data-name="mushrooms"/>
+                    <span>грибы</span>
+                </label>
+                <label>
+                    <input type="number" data-price="400" placeholder="_ _ _" max="40" min="0" data-add="" data-name="olives"/>
+                    <span>оливки</span>
+                </label>
+        </fieldset>
+
+    </div>
+        <button class="btn">посмотреть чек</button>
+        </section>
+
+    </main>
+</body>
+
+</html>
