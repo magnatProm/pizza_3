@@ -136,6 +136,7 @@ input[type=range] {
   transform: rotate3d(0, 1, 0, 180deg);
   margin: 0px;
   -webkit-appearance: none;
+  background: inherit;
 }
 
 input[data-size] {
